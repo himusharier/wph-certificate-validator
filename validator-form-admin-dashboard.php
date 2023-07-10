@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 <div class="aph-buradio-admin-main-wrapper">
-    <p class="aph-buradio-admin-heading">BU RADiO MP3 Playlist</p>
+    <p class="aph-buradio-admin-heading">FH Certificate Validator</p>
     <button class="aph-buradio-admin-addnew-btn">+ ADD A RECORD</button>
     <a class="aph-buradio-admin-howto-btn" href="https://plugins.himusharier.xyz" target="_blank">[How to use][Update][News]</a>
     <br/>
@@ -62,7 +62,7 @@ foreach ($retrieve_data as $retrieved_data){
                     </td>
                     <td><?php echo $retrieved_data->schedule_date; ?></td>
                     <td>
-                        <form action="admin.php?page=buradio-mp3-player-plugin-post-edit" method="post">
+                        <form action="admin.php?page=fhcv-plugin-admin-post-edit" method="post">
                             <input type="hidden" name="hidden-id" value="<?php echo $retrieved_data->id; ?>">
                             <button class="aph-buradio-admin-edit-btn" type="submit">Edit</button>
                         </form>
