@@ -60,9 +60,23 @@ function fhcv_plugin_admin_post_edit() {
     require plugin_dir_path(__FILE__) . 'validator-form-admin-post-edit.php';
   }
 }
+function fhcv_plugin_admin_add_new() {
+  if (!is_admin()) {
+    return;
+  } else {
+    require plugin_dir_path(__FILE__) . 'validator-form-admin-add-new.php';
+  }
+}
 function fhcv_plugin_menu_register() {
   add_menu_page('FH Certificate', 'FH Certificate', 'manage_options', 'validator-form-plugin-dashboard', 'fhcv_plugin_admin_dashboard', 'dashicons-awards', 30);
-  add_submenu_page('validator-form-plugin-dashboard', 'Edit Certificate', 'Certificate Edit', 'manage_options', 'fhcv-plugin-admin-post-edit', 'fhcv_plugin_admin_post_edit');
+  
+  add_submenu_page('validator-form-plugin-dashboard', 'Certificate List', 'Certificate List', 'manage_options', 'validator-form-plugin-dashboard', 'fhcv_plugin_admin_dashboard');
+  
+  add_submenu_page('validator-form-plugin-dashboard', 'Add New Certificate', 'Add New Certificate', 'manage_options', 'fhcv-plugin-admin-add-new', 'fhcv_plugin_admin_add_new');
+  
+  add_submenu_page('validator-form-plugin-dashboard', 'Edit Certificate', 'Edit Certificate', 'manage_options', 'fhcv-plugin-admin-post-edit', 'fhcv_plugin_admin_post_edit');
+
+  //remove_menu_page('fhcv-plugin-admin-post-edit');
 }
 add_action('admin_menu', 'fhcv_plugin_menu_register');
 
