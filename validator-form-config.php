@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       FH Certificate Validator
+ * Plugin Name:       WPH Certificate Validator
  * Plugin URI:        https://himusharier.com/
- * Description:       FH Certificate Validator Wordpress Plugin
+ * Description:       Certificate Validator Wordpress Plugin
  * Version:           1.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -11,7 +11,7 @@
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Update URI:        https://himusharier.com/
- * Text Domain:       fh-wp-certificate-validator
+ * Text Domain:       wph-certificate-validator
  */
 
 
