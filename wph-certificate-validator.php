@@ -23,12 +23,12 @@ if (!defined('WPH_CERTIFICATE_VALIDATOR_VERSION')) {define('WPH_CERTIFICATE_VALI
 /************************************************************************************************************/
 
 // adding style and js files for public:
-if (!function_exists('wphcv_plugin_scripts')) {
-    function wphcv_plugin_scripts() {
+if (!function_exists('wphcv_plugin_scripts_public')) {
+    function wphcv_plugin_scripts_public() {
     wp_enqueue_style('wphcv-stylesheet', plugins_url('/assets/style.css', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'/assets/style.css'), false);
     wp_enqueue_script('wphcv-javascript', plugins_url('/assets/script.js', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'/assets/script.js'), true);
     }
-    add_action('wp_enqueue_scripts', 'wphcv_plugin_scripts');
+    add_action('wp_enqueue_scripts', 'wphcv_plugin_scripts_public');
 }
 /***********************************************************/
 
@@ -56,10 +56,10 @@ function wphcv_plugin_admin_edit() {
     else {require plugin_dir_path(__FILE__) . 'validator-form-admin-edit.php';}
 }
 function wphcv_plugin_menu_register() {
-    add_menu_page('Certificate Validator', 'Certificate Validator', 'manage_options', 'wphcv-validator-form-plugin-dashboard', 'wphcv_plugin_admin_dashboard', 'dashicons-awards', 30);
-    add_submenu_page('validator-form-plugin-dashboard', 'Certificate List', 'Certificate List', 'manage_options', 'wphcv-validator-form-plugin-dashboard', 'wphcv_plugin_admin_dashboard');
-    add_submenu_page('validator-form-plugin-dashboard', 'Add New Certificate', 'Add New Certificate', 'manage_options', 'wphcv-plugin-admin-add', 'wphcv_plugin_admin_add');
-    add_submenu_page('validator-form-plugin-dashboard', 'Edit Certificate', 'Edit Certificate', 'manage_options', 'wphcv-plugin-admin-edit', 'wphcv_plugin_admin_edit');
+    add_menu_page('Certificate Validator', 'Certificate Validator', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard', 'dashicons-awards', 30);
+    add_submenu_page('validator-form-plugin-dashboard', 'Certificate List', 'Certificate List', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard');
+    add_submenu_page('validator-form-plugin-dashboard', 'Add New Certificate', 'Add New Certificate', 'manage_options', 'add-new-certificate', 'wphcv_plugin_admin_add');
+    add_submenu_page('validator-form-plugin-dashboard', 'Edit Certificate', 'Edit Certificate', 'manage_options', 'edit-certificate', 'wphcv_plugin_admin_edit');
 }
 add_action('admin_menu', 'wphcv_plugin_menu_register');
 /*****************************************************/
@@ -69,7 +69,7 @@ function wphcv_validator_form_ui() {
     require plugin_dir_path(__FILE__) . 'validator-form-ui.php';
 }
 function wphcv_validator_form_shortcode_register() {
-        add_shortcode('wphcv_validator_form_shortcode', 'wphcv_validator_form_ui');
+    add_shortcode('wphcv_validator_form_shortcode', 'wphcv_validator_form_ui');
 }
 add_action('init', 'wphcv_validator_form_shortcode_register');
 /************************************************************/
