@@ -1,0 +1,10 @@
+.wphcv-alpha-container {
+    /*border: 1px solid #dddddd;*/
+}
+.wphcv-input-form {
+    display: flex;
+    max-width: 500px;
+}
+input {
+    width: 100%;
+}

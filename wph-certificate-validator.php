@@ -16,8 +16,10 @@
  */
 /***********************************************/
 
+// check if plugin running through wordpress:
+if (!defined('ABSPATH')) {header("Location: /"); die();}
 // if directly called then abort:
-if (!defined('WPINC')) {die;}
+if (!defined('WPINC')) {die();}
 // define plugin version:
 if (!defined('WPH_CERTIFICATE_VALIDATOR_VERSION')) {define('WPH_CERTIFICATE_VALIDATOR_VERSION', '1.0');}
 /************************************************************************************************************/
@@ -30,7 +32,7 @@ if (!function_exists('wphcv_plugin_scripts_public')) {
     }
     add_action('wp_enqueue_scripts', 'wphcv_plugin_scripts_public');
 }
-/***********************************************************/
+/******************************************************************/
 
 // adding style and js files for admin panel:
 if (!function_exists('wphcv_plugin_scripts_admin')) {
@@ -57,9 +59,9 @@ function wphcv_plugin_admin_edit() {
 }
 function wphcv_plugin_menu_register() {
     add_menu_page('Certificate Validator', 'Certificate Validator', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard', 'dashicons-awards', 30);
-    add_submenu_page('validator-form-plugin-dashboard', 'Certificate List', 'Certificate List', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard');
-    add_submenu_page('validator-form-plugin-dashboard', 'Add New Certificate', 'Add New Certificate', 'manage_options', 'add-new-certificate', 'wphcv_plugin_admin_add');
-    add_submenu_page('validator-form-plugin-dashboard', 'Edit Certificate', 'Edit Certificate', 'manage_options', 'edit-certificate', 'wphcv_plugin_admin_edit');
+    add_submenu_page('certificate-validator-dashboard', 'Dashboard - Certificate Validator', 'Dashboard', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard');
+    add_submenu_page('certificate-validator-dashboard', 'Add New Certificate', 'Add New Certificate', 'manage_options', 'certificate-validator-new-certificate', 'wphcv_plugin_admin_add');
+    add_submenu_page('certificate-validator-dashboard', 'Edit Certificate', 'Edit Certificate', 'manage_options', 'certificate-validator-edit-certificate', 'wphcv_plugin_admin_edit');
 }
 add_action('admin_menu', 'wphcv_plugin_menu_register');
 /*****************************************************/

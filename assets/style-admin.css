@@ -1,0 +1,5 @@
+/* hiding a submenu from admin menu list */
+#adminmenu a[href="admin.php?page=certificate-validator-edit-certificate"] {
+    display: none;
+}
+/**************************************************************************/
