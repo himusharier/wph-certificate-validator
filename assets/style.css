@@ -3,7 +3,7 @@
 }
 .wphcv-input-form {
     display: flex;
-    max-width: 500px;
+    max-width: 100%;
 }
 input {
     width: 100%;
