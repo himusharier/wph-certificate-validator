@@ -2,20 +2,21 @@
     <p class="wphcv-form-heading">Enter Certificate ID:</p>
     <form class="wphcv-input-form">
 	    <input placeholder="Certificate ID" type="text" id="certificateId" required>
-	    <button type="submit" class="wphcv-submitButton" id="submitBtn">Validate &crarr;</button>
+	    <button type="submit" class="wphcv-submitButton" id="submitBtn">Validate</button>
+	    <!-- <button type="submit" class="wphcv-submitButton" id="submitBtn">Validate &crarr;</button> -->
 	</form>
 	<div class="wphcv-certificate-details">
 		<div class="wphcv-certificate-details-heading found">
 			<img src="<?php echo plugin_dir_url( __FILE__ );?>assets/verified.png">
-			<p><a style="font-weight: bolder;">Congratulations !</a><br/> You are verified.</p>
+			<span><p class="wphcv-certificate-details-heading-msg">Congratulations !</p><p>Your certificate is verified.<p></span>
 		</div>
 		<div class="wphcv-certificate-details-body">
-			<a><a style="font-weight: bolder;">Name:</a> Sharier Himu</a><br/>
-			<a><a style="font-weight: bolder;">Issue Date:</a> 19-09-2023</a>
+			<p><b>Name:</b> Sharier Himu</p>
+			<p><b>Issue Date:</b> 19-09-2023</p>
 		</div>
 		<!-- <div class="wphcv-certificate-details-heading error">
 			<img src="<?php echo plugin_dir_url( __FILE__ );?>assets/not-verified.png">
-			<p><a style="font-weight: bolder;">Not Found !</a><br/> Invalid Certificate ID.</p>
+			<span><p class="wphcv-certificate-details-heading-msg">Not Found !</p><p>Invalid Certificate ID.<p></span>
 		</div> -->
 	</div>
 </div>

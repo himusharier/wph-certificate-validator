@@ -37,12 +37,19 @@ input {
 }
 .wphcv-certificate-details {
 	border: 1px solid lightgray;
-	margin: 10px 0;
+	margin: 20px 0;
 }
 .wphcv-certificate-details-heading {
 	display: flex;
 	color: #ffffff;
 	padding: 10px;
+}
+.wphcv-certificate-details-heading span {
+	margin-left: 10px;
+	text-decoration: none;
+}
+.wphcv-certificate-details-heading-msg {
+	font-weight: bolder;
 }
 .wphcv-certificate-details-heading.found {
 	background-color: #3160B6;
@@ -52,10 +59,14 @@ input {
 }
 .wphcv-certificate-details-heading img {
 	height: 50px !important;
+	vertical-align: middle;
 }
 .wphcv-certificate-details-heading p {
 	margin: 0 10px;
 }
 .wphcv-certificate-details-body {
 	padding: 10px 20px;
+}
+.wphcv-certificate-details-body p{
+	margin: 0;
 }
