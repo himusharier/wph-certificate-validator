@@ -12,10 +12,10 @@ input {
     width: 100%;
     /*height: 40px;*/
 }
-/*#certificateId:placeholder-shown + #submitBtn:not(:focus) {
+#certificateId:placeholder-shown + #submitBtn:not(:focus) {
     opacity: .5;
     pointer-events: none;
-}*/
+}
 .wphcv-submitButton {
 	padding: 12px 24px;
 	margin: 0 0 0 5px;
