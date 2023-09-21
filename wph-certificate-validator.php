@@ -58,7 +58,7 @@ function wphcv_plugin_admin_edit() {
     else {require plugin_dir_path(__FILE__) . 'validator-form-admin-edit.php';}
 }
 function wphcv_plugin_menu_register() {
-    add_menu_page('Certificate Validator', 'Validator', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard', 'dashicons-awards', 30);
+    add_menu_page('Certificate Validator', 'Cert. Validator', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard', 'dashicons-awards', 30);
     add_submenu_page('certificate-validator-dashboard', 'Dashboard - Certificate Validator', 'Dashboard', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard');
     add_submenu_page('certificate-validator-dashboard', 'Add New Certificate', 'Add New Certificate', 'manage_options', 'certificate-validator-new-certificate', 'wphcv_plugin_admin_add');
     add_submenu_page('certificate-validator-dashboard', 'Edit Certificate', 'Edit Certificate', 'manage_options', 'certificate-validator-edit-certificate', 'wphcv_plugin_admin_edit');
@@ -71,7 +71,8 @@ function wphcv_validator_form_ui() {
     require plugin_dir_path(__FILE__) . 'validator-form-ui.php';
 }
 function wphcv_validator_form_shortcode_register() {
-    add_shortcode('wphcv_validator_form_shortcode', 'wphcv_validator_form_ui');
+    add_shortcode('wphcv_validator_form_shortcode', 'wphcv_validator_form_ui'); 
+    // add this shortcode --> [wphcv_validator_form_shortcode]
 }
 add_action('init', 'wphcv_validator_form_shortcode_register');
 /************************************************************/
