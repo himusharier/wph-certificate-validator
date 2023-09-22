@@ -39,6 +39,7 @@ if (!function_exists('wphcv_plugin_scripts_admin')) {
     function wphcv_plugin_scripts_admin() {
         wp_enqueue_style('wphcv-stylesheet-admin', plugins_url('admin/assets/style-admin.css', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'admin/assets/style-admin.css'), false);
         wp_enqueue_script('wphcv-javascript-admin', plugins_url('admin/assets/script-admin.js', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'admin/assets/script-admin.js'), true);
+        wp_enqueue_style('bwa-stylesheet-admin', plugins_url('admin/assets/style-bsewebapps.css', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'admin/assets/style-bsewebapps.css'), false);
     }
     add_action('admin_init', 'wphcv_plugin_scripts_admin');
 }

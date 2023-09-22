@@ -1,2 +1,3 @@
 <?php
-echo "admin dashboard";
+include ("header-bsewebapps.php");
+echo "<br/>admin dashboard";
