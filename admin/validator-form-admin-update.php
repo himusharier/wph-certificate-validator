@@ -1,3 +1,3 @@
 <?php
 include ("header-bsewebapps.php");
-echo "admin dashboard";
+echo "plugin update";
