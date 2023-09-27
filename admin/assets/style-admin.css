@@ -5,4 +5,7 @@
 #adminmenu a[href="admin.php?page=certificate-validator-plugin-update"] {
     display: none;
 }
+#adminmenu a[href="admin.php?page=certificate-validator-plugin-settings"] {
+    display: none;
+}
 /**************************************************************************/
