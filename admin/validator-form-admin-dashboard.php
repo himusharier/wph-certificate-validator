@@ -1,5 +1,5 @@
 <?php
-include ("header-bsewebapps.php");
+include ("bsewebapps/bsewebapps-header.php");
 echo "admin dashboard<br/>";
 // global $current_user;
 // get_currentuserinfo();
@@ -10,3 +10,4 @@ echo "admin dashboard<br/>";
 // echo 'User display name: ' . $current_user->display_name . "<br/>";
 // echo 'User ID: ' . $current_user->ID . "<br/>";
 // echo get_site_url() . "<br/>";
+// echo get_bloginfo( 'name' ) . "<br/>";

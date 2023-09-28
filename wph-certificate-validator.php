@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {header("Location: /"); die();}
 if (!defined('WPINC')) {die();}
 // define plugin version:
 if (!defined('WPH_CERTIFICATE_VALIDATOR_VERSION')) {define('WPH_CERTIFICATE_VALIDATOR_VERSION', '1.0');}
-/************************************************************************************************************/
+/******************************************************************************************************/
 
 // adding style and js files for public:
 if (!function_exists('wphcv_plugin_scripts_public')) {
@@ -47,14 +47,14 @@ if (!function_exists('wphcv_plugin_scripts_admin')) {
 // adding style and js files on admin panel for bse web apps:
 if (!function_exists('bsewebapps_plugin_scripts_admin')) {
     function bsewebapps_plugin_scripts_admin() {
-        wp_enqueue_style('bsewebapps-stylesheet-admin', plugins_url('admin/assets/style-bsewebapps.css', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'admin/assets/style-bsewebapps.css'), false);
-        wp_enqueue_script('bsewebapps-javascript-admin', plugins_url('admin/assets/script-bsewebapps.js', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'admin/assets/script-bsewebapps.js'), true);
+        wp_enqueue_style('bsewebapps-stylesheet-admin', plugins_url('admin/bsewebapps/assets/style-bsewebapps.css', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'admin/bsewebapps/assets/style-bsewebapps.css'), false);
+        wp_enqueue_script('bsewebapps-javascript-admin', plugins_url('admin/bsewebapps/assets/script-bsewebapps.js', __FILE__), '', filemtime(plugin_dir_path(__FILE__).'admin/bsewebapps/assets/script-bsewebapps.js'), true);
     }
     add_action('admin_init', 'bsewebapps_plugin_scripts_admin');
 }
 /**************************************************************/
 
-// adding top-level menu options to the admin dashboard:
+// adding menu page for admin panel (plugin):
 function wphcv_plugin_admin_dashboard() {
     if (!is_admin()) {return;}
     else {require plugin_dir_path(__FILE__) . 'admin/validator-form-admin-dashboard.php';}
@@ -67,19 +67,25 @@ function wphcv_plugin_admin_edit() {
     if (!is_admin()) {return;}
     else {require plugin_dir_path(__FILE__) . 'admin/validator-form-admin-edit.php';}
 }
+
+// adding menu page for admin panel (bsewebapps):
 function wphcv_plugin_admin_update() {
     if (!is_admin()) {return;}
-    else {require plugin_dir_path(__FILE__) . 'admin/validator-form-admin-update.php';}
+    else {require plugin_dir_path(__FILE__) . 'admin/bsewebapps/bsewebapps-admin-update.php';}
 }
 function wphcv_plugin_admin_settings() {
     if (!is_admin()) {return;}
-    else {require plugin_dir_path(__FILE__) . 'admin/validator-form-admin-settings.php';}
+    else {require plugin_dir_path(__FILE__) . 'admin/bsewebapps/bsewebapps-admin-settings.php';}
 }
+
+// adding top-level menu options to the admin dashboard:
 function wphcv_plugin_menu_register() {
     add_menu_page('Certificate Validator', 'Cert. Validator', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard', 'dashicons-awards', 30);
     add_submenu_page('certificate-validator-dashboard', 'Dashboard - Certificate Validator', 'Dashboard', 'manage_options', 'certificate-validator-dashboard', 'wphcv_plugin_admin_dashboard');
     add_submenu_page('certificate-validator-dashboard', 'Add New Certificate', 'Add New Certificate', 'manage_options', 'certificate-validator-new-certificate', 'wphcv_plugin_admin_add');
     add_submenu_page('certificate-validator-dashboard', 'Edit Certificate', 'Edit Certificate', 'manage_options', 'certificate-validator-edit-certificate', 'wphcv_plugin_admin_edit');
+
+    // adding menu items for bsewebapps:
     add_submenu_page('certificate-validator-dashboard', 'Plugin Update', 'Plugin Update', 'manage_options', 'certificate-validator-plugin-update', 'wphcv_plugin_admin_update');
     add_submenu_page('certificate-validator-dashboard', 'Plugin Settings', 'Plugin Settings', 'manage_options', 'certificate-validator-plugin-settings', 'wphcv_plugin_admin_settings');
 }

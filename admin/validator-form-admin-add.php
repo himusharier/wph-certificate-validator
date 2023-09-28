@@ -1,3 +1,3 @@
 <?php
-include ("header-bsewebapps.php");
+include ("bsewebapps/bsewebapps-header.php");
 echo "certificate add";
