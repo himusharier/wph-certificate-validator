@@ -23,6 +23,7 @@
                             echo '<b>' . $current_user->user_email . "</b><br/>" . $current_user->user_login;
                             ?>
                         </span>
+                        <button class="show-modal">Show Modal</button>
                     </a>
                     <a href="#"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/account.png">Profile</a>
                     <a href="admin.php?page=certificate-validator-plugin-settings"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/settings.png">Settings</a>
