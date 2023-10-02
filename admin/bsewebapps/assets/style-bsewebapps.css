@@ -1,20 +1,12 @@
-/* justifying wordpress default padding: */
-#wpcontent {
-	padding-left: 0 !important;
-}
-/***********/
-
 .bwa-header-main-container {
 	background-color: #ffffff;
 	padding: 5px 10px !important;
 	height: 30px;
-	/*box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);*/
-	/*box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;*/
-	/*box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;*/
 	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin-left: -20px;
 }
 .bwa-header-div-left-element > a > img {
 	height: 30px;
@@ -39,7 +31,6 @@
 	align-items: center;
 	padding: 5px;
 	border-radius: 4px;
-	/*border: 1px solid #cccccc;*/
 	margin-left: 15px;
 	text-decoration: none;
 	color: #515962;
@@ -120,10 +111,8 @@
   color: black;
   padding: 10px;
   text-decoration: none;
-  /*display: block;*/
   text-align: left;
   border-bottom: 1px dashed #dddddd;
-
   display: flex;
   align-items: center;
 }
@@ -137,18 +126,12 @@
 }
 .bwa-header-account-div-content > a:last-child {
 	border-bottom: 0;
-	color: red;
+	/*color: red;*/
 }
 .bwa-header-account-div-show {
   display: block;
 }
-
-
-
-
-
-
-#aph-buradio-admin-modal {
+#bwa-popup-admin-modal {
 	margin: 0 auto;
 	background: rgba(0, 0, 0, 0.3);
 	position: fixed;
@@ -158,19 +141,20 @@
 	height: 100%;
 	z-index: 100;
 	display: none;
-	font-family: Arial, Helvetica, sans-serif;
 	overflow: auto;
 	padding: 5px;
 	box-sizing: border-box;
 }
-.aph-buradio-admin-modal-form {
-	background: #fff;
-	max-width: 700px;
-	position: relative;
-	top: 10%;
-	padding: 15px;
+.bwa-popup-admin-modal-form {
+	background-color: #ffffff;
+	max-width: 400px;
+	width: 100%;
+	height: auto;
 	border-radius: 4px;
-	margin: 0 auto;
-	overflow: auto;
-	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+	padding: 10px 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
