@@ -10,3 +10,17 @@ window.onclick = function(e) {
     }
   }
 }
+
+// admin panel pop-up modal:
+document.getElementById("bwa-signin-btn").onclick = function() {
+	document.getElementById('bwa-popup-admin-modal').style.display = 'block';
+	document.documentElement.style.overflow = 'hidden';
+};
+document.getElementById("bwa-popup-admin-modal-close").onclick = function() {
+	document.getElementById('bwa-popup-admin-modal').style.display = 'none';
+	document.documentElement.style.overflow = 'auto';
+};
+document.getElementById("bwa-popup-admin-later-btn").onclick = function() {
+	document.getElementById('bwa-popup-admin-modal').style.display = 'none';
+	document.documentElement.style.overflow = 'auto';
+};

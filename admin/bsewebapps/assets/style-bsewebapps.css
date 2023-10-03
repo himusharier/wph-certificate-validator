@@ -131,6 +131,21 @@
 .bwa-header-account-div-show {
   display: block;
 }
+.bwa-header-account-signin-btn {
+	/*background-color: #2281B1;*/
+	/*border: 1px solid #2271B1;*/
+	/*border-radius: 3px;*/
+	border: 0;
+	color: #515962;
+	padding: 0;
+	margin: 0;
+	display: flex;
+}
+.bwa-header-account-signin-btn:hover {
+	/*background-color: #2271B1;*/
+	cursor: pointer;
+	text-decoration: underline;
+}
 #bwa-popup-admin-modal {
 	margin: 0 auto;
 	background: rgba(0, 0, 0, 0.3);
@@ -152,9 +167,95 @@
 	height: auto;
 	border-radius: 4px;
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-	padding: 10px 15px;
+	padding: 15px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-30%, -50%);
+}
+.bwa-popup-admin-title {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #cccccc;
+}
+.bwa-popup-admin-title > a {
+	font-size: 18px;
+	text-decoration: none;
+	color: #515962;
+	font-weight: bolder;
+}
+.bwa-popup-admin-title > span {
+	opacity: 0.5;
+	padding: 5px 0 10px 5px;
+}
+.bwa-popup-admin-title > span:hover {
+	opacity: 0.7;
+	cursor: pointer;
+}
+.bwa-popup-admin-content * {
+	display: block;
+	margin-top: 20px;
+}
+.bwa-popup-admin-content a {
+	text-decoration: none;
+	color: #515962;
+	font-size: 14px;
+}
+.bwa-popup-admin-content b {
+	text-decoration: none;
+	color: #515962;
+	font-size: 16px;
+	font-weight: bolder;
+	margin-top: 0px;
+}
+/*.bwa-popup-admin-content input {
+	margin-top: 0px;
+	width: 100%;
+}*/
+.bwa-popup-admin-modal-warning {
+	padding: 5px;
+	border: 1px solid red;
+	margin-top: 10px;
+	border-radius: 4px;
+	background-color: rgba(255, 57, 57, 0.10);
+}
+.bwa-popup-admin-modal-warning * {
+	text-decoration: none;
+	color: red;
+	display: block;
+}
+.bwa-popup-admin-button {
+	margin-top: 20px;
+	display: flex;
+	border-top: 1px solid #cccccc;
+	padding-top: 10px;
+}
+.bwa-popup-admin-button > button {
+	display: flex;
+	align-items: center;
+	margin-right: 20px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+.bwa-popup-admin-button > button:first-child {
+	background-color: transparent;
+	border: 0;
+	color: red;
+	margin-right: 30px;
+	margin-left: 20px;
+	padding: 5px 0px;
+}
+.bwa-popup-admin-button > button:first-child:hover {
+	text-decoration: underline;
+}
+.bwa-popup-admin-button > button:last-child {
+	/*border: 1px solid #2281B1;*/
+	border: 0;
+	color: #ffffff;
+	background-color: #2281B1;
+	padding: 5px 20px;
+	border-radius: 2px;
+}
+.bwa-popup-admin-button > button:last-child:hover {
+	background-color: #2271B1;
 }

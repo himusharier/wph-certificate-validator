@@ -40,7 +40,7 @@ include ("bsewebapps-registration.php");
                     ?>
                     <a>
                         <span>
-                            Sign In
+                            <button class="bwa-header-account-signin-btn" name="bwa-signin-btn" id="bwa-signin-btn"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/login.png">Sign in</button>
                         </span>
                     </a>
                     <?php
