@@ -16,11 +16,11 @@ include ("bsewebapps-registration.php");
                     <div class="bwa-header-div-dot-div"></div>
                 </div> -->
             </a>
-            <a class="bwa-header-account-div" onclick="accountMenu()"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/account.png">Account</a>
+            <a class="bwa-header-account-div" onclick="accountMenu()"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/account.png"><?php if ($auth_check == "found"){echo $bsewebapps_username;}else{echo "Account";} ?></a>
             <div class="bwa-header-account-container">
                 <div class="bwa-header-account-div-content" id="accountMenuItems">
                     <?php
-                    if ($auth_code_check == "found") {
+                    if ($auth_check == "found") {
                     ?>
                     <a>
                         <span>
@@ -36,11 +36,11 @@ include ("bsewebapps-registration.php");
                     }
                     ?>
                     <?php
-                    if ($auth_code_check == "not-found") {
+                    if ($auth_check == "not-found") {
                     ?>
                     <a>
                         <span>
-                            <button class="bwa-header-account-signin-btn" name="bwa-signin-btn" id="bwa-signin-btn"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/login.png">Sign in</button>
+                            <button class="bwa-header-account-signin-btn" name="bwa-signin-btn" onclick="popupAdminModalView()"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/login.png">Sign in</button>
                         </span>
                     </a>
                     <?php

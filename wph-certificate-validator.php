@@ -20,8 +20,10 @@
 if (!defined('ABSPATH')) {header("Location: /"); die();}
 // if directly called then abort:
 if (!defined('WPINC')) {die();}
+// define plugin name:
+if (!defined('PLUGIN_NAME')) {define('PLUGIN_NAME', 'WPH Certificate Validator');}
 // define plugin version:
-if (!defined('WPH_CERTIFICATE_VALIDATOR_VERSION')) {define('WPH_CERTIFICATE_VALIDATOR_VERSION', '1.0');}
+if (!defined('PLUGIN_VERSION')) {define('PLUGIN_VERSION', '1.0');}
 /******************************************************************************************************/
 
 // adding style and js files for public:

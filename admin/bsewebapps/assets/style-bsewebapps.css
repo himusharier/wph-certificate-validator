@@ -184,11 +184,11 @@
 	color: #515962;
 	font-weight: bolder;
 }
-.bwa-popup-admin-title > span {
+.bwa-popup-admin-title > img {
 	opacity: 0.5;
 	padding: 5px 0 10px 5px;
 }
-.bwa-popup-admin-title > span:hover {
+.bwa-popup-admin-title > img:hover {
 	opacity: 0.7;
 	cursor: pointer;
 }
@@ -219,43 +219,46 @@
 	border-radius: 4px;
 	background-color: rgba(255, 57, 57, 0.10);
 }
-.bwa-popup-admin-modal-warning * {
+.bwa-popup-admin-modal-warning > a, .bwa-popup-admin-modal-warning > b {
 	text-decoration: none;
 	color: red;
 	display: block;
 }
-.bwa-popup-admin-button {
+.bwa-popup-admin-note-msg {
 	margin-top: 20px;
+	margin-bottom: 5px;
+}
+.bwa-popup-admin-note-msg > a{
+	color: #515962;
+	font-size: 12px;
+}
+.bwa-popup-admin-button {
 	display: flex;
+	align-items: center;
 	border-top: 1px solid #cccccc;
+	font-size: 14px;
 	padding-top: 10px;
 }
 .bwa-popup-admin-button > button {
-	display: flex;
-	align-items: center;
-	margin-right: 20px;
-	padding: 5px 10px;
-	cursor: pointer;
-}
-.bwa-popup-admin-button > button:first-child {
 	background-color: transparent;
 	border: 0;
-	color: red;
+	color: #515962;
 	margin-right: 30px;
 	margin-left: 20px;
-	padding: 5px 0px;
 }
-.bwa-popup-admin-button > button:first-child:hover {
+.bwa-popup-admin-button > button:hover {
 	text-decoration: underline;
+	cursor: pointer;
 }
-.bwa-popup-admin-button > button:last-child {
+.bwa-popup-admin-button > form > button {
 	/*border: 1px solid #2281B1;*/
 	border: 0;
 	color: #ffffff;
 	background-color: #2281B1;
-	padding: 5px 20px;
+	padding: 10px 20px;
 	border-radius: 2px;
 }
-.bwa-popup-admin-button > button:last-child:hover {
+.bwa-popup-admin-button > form > button:hover {
 	background-color: #2271B1;
+	cursor: pointer;
 }
