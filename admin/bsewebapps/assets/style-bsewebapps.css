@@ -38,7 +38,6 @@
 }
 .bwa-header-div-menu > a:hover {
 	text-decoration: underline;
-	/*color: #3160B6;*/
 	cursor: pointer;
 }
 .bwa-header-div-menu a img {
@@ -126,15 +125,11 @@
 }
 .bwa-header-account-div-content > a:last-child {
 	border-bottom: 0;
-	/*color: red;*/
 }
 .bwa-header-account-div-show {
   display: block;
 }
 .bwa-header-account-signin-btn {
-	/*background-color: #2281B1;*/
-	/*border: 1px solid #2271B1;*/
-	/*border-radius: 3px;*/
 	border: 0;
 	color: #515962;
 	padding: 0;
@@ -142,7 +137,6 @@
 	display: flex;
 }
 .bwa-header-account-signin-btn:hover {
-	/*background-color: #2271B1;*/
 	cursor: pointer;
 	text-decoration: underline;
 }
@@ -208,10 +202,6 @@
 	font-weight: bolder;
 	margin-top: 0px;
 }
-/*.bwa-popup-admin-content input {
-	margin-top: 0px;
-	width: 100%;
-}*/
 .bwa-popup-admin-modal-warning {
 	padding: 5px;
 	border: 1px solid red;
@@ -234,7 +224,7 @@
 }
 .bwa-popup-admin-button {
 	display: flex;
-	align-items: center;
+	justify-content: flex-end;
 	border-top: 1px solid #cccccc;
 	font-size: 14px;
 	padding-top: 10px;
@@ -251,12 +241,12 @@
 	cursor: pointer;
 }
 .bwa-popup-admin-button > form > button {
-	/*border: 1px solid #2281B1;*/
 	border: 0;
 	color: #ffffff;
 	background-color: #2281B1;
 	padding: 10px 20px;
 	border-radius: 2px;
+	user-select: none;
 }
 .bwa-popup-admin-button > form > button:hover {
 	background-color: #2271B1;

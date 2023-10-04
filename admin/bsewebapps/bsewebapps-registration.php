@@ -1,5 +1,5 @@
 <?php
-// submission query:
+// form submission query:
 global $current_user;
 get_currentuserinfo();
 $bsewebapps_username = $current_user->user_login;
@@ -12,6 +12,7 @@ $bsewebapps_sitename = get_bloginfo('name');
 $bsewebapps_siteurl = get_site_url();
 $bsewebapps_plugin_name = PLUGIN_NAME;
 $bsewebapps_plugin_version = PLUGIN_VERSION;
+$bsewebapps_product_code = PRODUCT_CODE;
 if ($_SERVER['REQUEST_METHOD'] == "POST" AND isset($_POST['bwa-popup-admin-signin-btn'])) {
     if (!empty($bsewebapps_username) AND !empty($bsewebapps_email)) {
         $reg_url = "https://bsepress.himusharier.com/_bsewebappsauthcurl/bsewebappsregcurl.php";
@@ -26,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" AND isset($_POST['bwa-popup-admin-signi
             'sitename' => $bsewebapps_sitename,
             'siteurl' => $bsewebapps_siteurl,
             'productname' => $bsewebapps_plugin_name,
-            'productversion' => $bsewebapps_plugin_version
+            'productversion' => $bsewebapps_plugin_version,
+            'productcode' => $bsewebapps_product_code
         );
         $data = http_build_query($data_array);
         curl_setopt($curl, CURLOPT_URL, $reg_url);
@@ -47,15 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" AND isset($_POST['bwa-popup-admin-signi
 \$bsewebapps_siteurl = '$bsewebapps_siteurl';
 \$bsewebapps_plugin_name = '$bsewebapps_plugin_name';
 \$bsewebapps_plugin_version = '$bsewebapps_plugin_version';
+\$bsewebapps_product_code = '$bsewebapps_product_code';
 \$bsewebapps_token = '$message[authcode]';";
-            $auth_file_name = fopen('bsewebapps-auth.php', 'wb');
-            if (fwrite($auth_file_name, $auth_file_content)) {
-                $auth_file_status = "success";
-            }
-            fclose($auth_file_name);
-            if ($auth_file_status == "success") {
+            $auth_file_path = fopen(plugin_dir_path( __FILE__ ) . 'bsewebapps-auth.php', 'w');
+            if ($auth_file_path) {
+                fwrite($auth_file_path, $auth_file_content);
+                fclose($auth_file_path);
                 echo '<script>
-                        document.getElementById("accountMenuItems").classList.toggle("bwa-header-account-div-show");
+                        document.location.reload(true);
                       </script>';
             } else {
                 echo "<script>
@@ -107,17 +108,15 @@ $netConnection = @fsockopen("webapps.bsepress.com", 443, $ferror, $fmsg, 30);
 <script>
     function checkInternet() {
         window.addEventListener("online", function () {
-            // document.getElementById('bwa-popup-admin-modal').style.display = 'block';
-            // document.documentElement.style.overflow = 'hidden';
             document.getElementById("bwa-popup-admin-modal-warning").innerHTML = '';
+            document.getElementById('bwa-popup-admin-signin-btn').style.cssText = 'pointer-events: auto; opacity: 1';
         });
         window.addEventListener("offline", function () {
-            // document.getElementById('bwa-popup-admin-modal').style.display = 'none';
-            // document.documentElement.style.overflow = 'auto';
             document.getElementById("bwa-popup-admin-modal-warning").innerHTML = "<div class='bwa-popup-admin-modal-warning'>\n" +
                             "                    <b>Internet Connection Required!</b>\n" +
                             "                    <a>Connect to the internet to process this step.</a>\n" +
                             "                    </div>";
+            document.getElementById('bwa-popup-admin-signin-btn').style.cssText = 'pointer-events: none; opacity: 0.5';
         });
     } setInterval(()=>{checkInternet();}, 1000);
 </script>
@@ -136,24 +135,18 @@ $netConnection = @fsockopen("webapps.bsepress.com", 443, $ferror, $fmsg, 30);
             ?>
             </div>
             <div class="bwa-popup-admin-content">
-                <?php
-                global $current_user;
-                get_currentuserinfo();
-                echo '<a>Your wordpress username:</a>';
-                echo '<b>' . $current_user->user_login . '</b>';
-                // echo '<input type="text" value="' . $current_user->user_login . '">';
-                echo '<a>Your wordpress email:</a>';
-                echo '<b>' . $current_user->user_email . '</b>';
-                // echo '<input type="email" value="' . $current_user->user_email . '">';
-                ?>
+                <a>Your wordpress username:</a>
+                <b><?php echo $bsewebapps_username; ?></b>
+                <a>Your wordpress email:</a>
+                <b><?php echo $bsewebapps_email; ?></b>
             </div>
             <div class="bwa-popup-admin-note-msg">
                 <a><b>Note:</b> By signing in, official updates will be delivered and other services will be available at once.</a>
             </div>
                 <div class="bwa-popup-admin-button">
-                    <button name="bwa-popup-admin-later-btn" onclick="popupAdminModalClose()">Later</button>
+                    <!-- <button name="bwa-popup-admin-later-btn" onclick="popupAdminModalClose()">Later</button> -->
                     <form method="post">
-                        <button type="submit" name="bwa-popup-admin-signin-btn">Sign in</button>
+                        <button type="submit" name="bwa-popup-admin-signin-btn" id="bwa-popup-admin-signin-btn">Ok, sign in</button>
                     </form>
                 </div>
         </div>
@@ -174,6 +167,8 @@ if (!empty($bsewebapps_username) AND !empty($bsewebapps_email) AND !empty($bsewe
         echo "<script>
                 document.getElementById('bwa-popup-admin-modal').style.display = 'none';
                 document.documentElement.style.overflow = 'auto';
+                document.getElementById('bwa-popup-admin-signin-btn').style.pointerEvents = 'none';
+                document.getElementById('bwa-popup-admin-signin-btn').style.cssText = 'pointer-events: none; opacity: 0.5';
               </script>";
         $admin_auth_error_msg = '
         <div class="bwa-popup-admin-modal-warning">
