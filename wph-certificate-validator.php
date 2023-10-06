@@ -23,7 +23,7 @@ if (!defined('WPINC')) {die();}
 // define plugin name:
 if (!defined('PLUGIN_NAME')) {define('PLUGIN_NAME', 'WPH Certificate Validator');}
 // define plugin version:
-if (!defined('PLUGIN_VERSION')) {define('PLUGIN_VERSION', '1.0');}
+if (!defined('PLUGIN_VERSION')) {define('PLUGIN_VERSION', '1.0.0');}
 // define product code:
 if (!defined('PRODUCT_CODE')) {define('PRODUCT_CODE', '324509');}
 /******************************************************************************************************/

@@ -16,7 +16,7 @@ include ("bsewebapps-registration.php");
                     <div class="bwa-header-div-dot-div"></div>
                 </div> -->
             </a>
-            <a class="bwa-header-account-div" onclick="accountMenu()"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/account.png"><?php if ($auth_check == "found"){echo $bsewebapps_username;}else{echo "Account";} ?></a>
+            <a class="bwa-header-account-div" onclick="accountMenu()"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/account.png"><?php if ($auth_check == "found"){echo $bsewebapps_username_auth;}else{echo "Account";} ?></a>
             <div class="bwa-header-account-container">
                 <div class="bwa-header-account-div-content" id="accountMenuItems">
                     <?php
@@ -25,18 +25,22 @@ include ("bsewebapps-registration.php");
                     <a>
                         <span>
                             <?php
-                            echo '<b>' . $bsewebapps_email . "</b><br/>" . $bsewebapps_username;
+                            echo "<b>" . $bsewebapps_email_auth . "</b><br/>" . $bsewebapps_username_auth;
                             ?>
                         </span>
                     </a>
-                    <a href="#"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/account.png">Profile</a>
+                    <?php
+                        if ($bsewebapps_email_auth == $bsewebapps_email) {
+                            echo '<a href="#"><img src="' . plugin_dir_url(__FILE__) . 'assets/account.png">Profile</a>';
+                        }
+                    ?>
                     <a href="admin.php?page=certificate-validator-plugin-settings"><img src="<?php echo plugin_dir_url( __FILE__ );?>assets/settings.png">Settings</a>
 <!--                    <a href="#"><img src="--><?php //echo plugin_dir_url( __FILE__ );?><!--assets/logout.png">Logout</a>-->
                     <?php
                     }
                     ?>
                     <?php
-                    if ($auth_check == "not-found") {
+                    if ($auth_check == "error") {
                     ?>
                     <a>
                         <span>
